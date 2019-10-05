@@ -15,6 +15,9 @@ Go 1.14+
 
 ## Data Structures
 - [Bag](data_strutures/bag)
+- [Array](data_strutures/array)
+  - [Dynamic Array](data_strutures/array/dynamic_array.go)
+
     
 ## Algorithms
 
