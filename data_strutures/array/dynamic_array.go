@@ -127,9 +127,7 @@ func (a *DynamicArray) Capacity() int {
 // resize 进行数组的扩缩容
 func (a *DynamicArray) resize(capacity int) {
 	newItems := make([]interface{}, capacity)
-	for i := 0; i < a.size; i++ {
-		newItems[i] = a.items[i]
-	}
+	copy(newItems, a.items)
 	a.capacity = capacity
 	a.items = newItems
 }
