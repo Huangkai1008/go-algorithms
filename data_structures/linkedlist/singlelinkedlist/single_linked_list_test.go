@@ -1,6 +1,7 @@
 package singlelinkedlist
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -9,10 +10,13 @@ import (
 func TestSingleLinkedList(t *testing.T) {
 	linkedList := New()
 	assert.Equal(t, true, linkedList.IsEmpty())
+	fmt.Println(linkedList)
 
 	for i := 0; i < 10; i++ {
 		linkedList.Append(i)
 	}
+	fmt.Println(linkedList)
+
 	assert.Equal(t, 10, linkedList.Size())
 	assert.Equal(t, true, linkedList.Contains(0))
 	assert.Equal(t, false, linkedList.Contains(11))
@@ -36,4 +40,5 @@ func TestSingleLinkedList(t *testing.T) {
 	for i := 0; i < linkedList.Size(); i++ {
 		linkedList.Remove(0)
 	}
+	fmt.Println(linkedList)
 }

@@ -1,5 +1,10 @@
 package singlelinkedlist
 
+import (
+	"fmt"
+	"strings"
+)
+
 // Node 链表的节点
 type Node struct {
 	data interface{}
@@ -100,4 +105,16 @@ func (l *SingleLinkedList) IsEmpty() bool {
 
 func (l *SingleLinkedList) Size() int {
 	return l.size
+}
+
+func (l *SingleLinkedList) String() string {
+	var builder strings.Builder
+	builder.WriteString("Head: ")
+	cur := l.dummyHead.next
+	for cur != nil {
+		builder.WriteString(fmt.Sprintf("%v-->", cur.data))
+		cur = cur.next
+	}
+	builder.WriteString("Null")
+	return builder.String()
 }

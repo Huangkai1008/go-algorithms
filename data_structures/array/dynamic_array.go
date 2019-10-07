@@ -1,5 +1,10 @@
 package array
 
+import (
+	"fmt"
+	"strings"
+)
+
 // Array 是数组的抽象类型
 type Array interface {
 	Get(index int) interface{}          // Get 返回数组索引位置元素的值
@@ -130,4 +135,17 @@ func (a *DynamicArray) resize(capacity int) {
 	copy(newItems, a.items)
 	a.capacity = capacity
 	a.items = newItems
+}
+
+func (a *DynamicArray) String() string {
+	var builder strings.Builder
+	builder.WriteString("[")
+	for i := 0; i < a.size; i++ {
+		builder.WriteString(fmt.Sprint(a.items[i]))
+		if i != a.size-1 {
+			builder.WriteString(", ")
+		}
+	}
+	builder.WriteString("]")
+	return builder.String()
 }

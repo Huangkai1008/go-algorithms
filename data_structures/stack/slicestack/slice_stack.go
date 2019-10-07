@@ -1,5 +1,10 @@
 package slicestack
 
+import (
+	"fmt"
+	"strings"
+)
+
 // SliceStack 使用切片实现栈
 //
 // 使用切片末尾作为栈顶
@@ -35,10 +40,23 @@ func (s *SliceStack) Peek() interface{} {
 	return s.items[len(s.items)-1]
 }
 
-func (s SliceStack) IsEmpty() bool {
+func (s *SliceStack) IsEmpty() bool {
 	return len(s.items) == 0
 }
 
-func (s SliceStack) Size() int {
+func (s *SliceStack) Size() int {
 	return len(s.items)
+}
+
+func (s *SliceStack) String() string {
+	var builder strings.Builder
+	builder.WriteString("Bottom [")
+	for i, item := range s.items {
+		builder.WriteString(fmt.Sprint(item))
+		if i != len(s.items)-1 {
+			builder.WriteString(", ")
+		}
+	}
+	builder.WriteString("] Top")
+	return builder.String()
 }

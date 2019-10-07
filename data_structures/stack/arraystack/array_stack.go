@@ -1,6 +1,9 @@
 package arraystack
 
-import "go-algorithms/data_structures/array"
+import (
+	"go-algorithms/data_structures/array"
+	"strings"
+)
 
 // ArrayStack 使用动态数组实现栈
 //
@@ -37,10 +40,18 @@ func (s *ArrayStack) Peek() interface{} {
 	return s.items.Get(s.items.Size() - 1)
 }
 
-func (s ArrayStack) IsEmpty() bool {
+func (s *ArrayStack) IsEmpty() bool {
 	return s.items.IsEmpty()
 }
 
-func (s ArrayStack) Size() int {
+func (s *ArrayStack) Size() int {
 	return s.items.Size()
+}
+
+func (s *ArrayStack) String() string {
+	var builder strings.Builder
+	builder.WriteString("Bottom ")
+	builder.WriteString(s.items.String())
+	builder.WriteString(" Top")
+	return builder.String()
 }

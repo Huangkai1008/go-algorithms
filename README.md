@@ -14,9 +14,14 @@ Data structures and algorithms written in Golang.
 Go 1.14+
 
 ## Data Structures
-- [Bag](data_strutures/bag)
-- [Array](data_strutures/array)
-  - [Dynamic Array](data_strutures/array/dynamic_array.go)
+- [Bag](data_structures/bag)
+- [Array](data_structures/array)
+  - [Dynamic Array](data_structures/array/dynamic_array.go)
+- [Linked List](data_structures/linkedlist)
+  - [Singly Linked List](data_structures/linkedlist/singlelinkedlist/single_linked_list.go)
+- [Stack](data_structures/stack)
+  - [Array Stack](data_structures/stack/arraystack/array_stack.go)
+  - [Slice Stack](data_structures/stack/slicestack/slice_stack.go)
 
     
 ## Algorithms

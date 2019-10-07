@@ -1,6 +1,7 @@
 package array
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -27,4 +28,5 @@ func TestDynamicArray(t *testing.T) {
 
 	array.Remove(0)
 	array.Remove(1)
+	fmt.Println(array)
 }
