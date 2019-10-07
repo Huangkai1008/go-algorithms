@@ -1,6 +1,6 @@
 package arraystack
 
-import "go-algorithms/data_strutures/array"
+import "go-algorithms/data_structures/array"
 
 // ArrayStack 使用动态数组实现栈
 //
