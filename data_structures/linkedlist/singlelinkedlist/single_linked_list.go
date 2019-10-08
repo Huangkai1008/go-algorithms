@@ -1,4 +1,4 @@
-package singlelinkedlist
+package sll
 
 import (
 	"fmt"
@@ -25,14 +25,14 @@ func New() *SingleLinkedList {
 }
 
 func (l *SingleLinkedList) Add(data interface{}) {
-	l.Set(0, data)
+	l.Insert(0, data)
 }
 
 func (l *SingleLinkedList) Append(data interface{}) {
-	l.Set(l.size, data)
+	l.Insert(l.size, data)
 }
 
-func (l *SingleLinkedList) Set(pos int, data interface{}) {
+func (l *SingleLinkedList) Insert(pos int, data interface{}) {
 	pre := l.dummyHead
 	for i := 0; i < pos; i++ {
 		pre = pre.next
@@ -74,26 +74,21 @@ func (l *SingleLinkedList) Remove(pos int) interface{} {
 }
 
 func (l *SingleLinkedList) Delete(data interface{}) {
-	pre := l.dummyHead
-	for pre.next != nil {
+	for pre := l.dummyHead; pre.next != nil; pre = pre.next {
 		cur := pre.next
 		if cur.data == data {
 			pre.next = cur.next
 			cur.next = nil
 			l.size--
 		}
-
-		pre = pre.next
 	}
 }
 
 func (l *SingleLinkedList) Contains(data interface{}) bool {
-	cur := l.dummyHead.next
-	for cur != nil {
+	for cur := l.dummyHead.next; cur != nil; cur = cur.next {
 		if cur.data == data {
 			return true
 		}
-		cur = cur.next
 	}
 
 	return false
@@ -119,10 +114,8 @@ func (l *SingleLinkedList) Values() []interface{} {
 func (l *SingleLinkedList) String() string {
 	var builder strings.Builder
 	builder.WriteString("Head: ")
-	cur := l.dummyHead.next
-	for cur != nil {
+	for cur := l.dummyHead.next; cur != nil; cur = cur.next {
 		builder.WriteString(fmt.Sprintf("%v-->", cur.data))
-		cur = cur.next
 	}
 	builder.WriteString("Null")
 	return builder.String()

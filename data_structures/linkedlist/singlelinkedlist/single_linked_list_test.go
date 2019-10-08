@@ -1,4 +1,4 @@
-package singlelinkedlist
+package sll
 
 import (
 	"fmt"
@@ -25,7 +25,7 @@ func TestSingleLinkedList(t *testing.T) {
 	for i := 10; i < 20; i++ {
 		linkedList.Append(i)
 	}
-	linkedList.Set(2, 99)
+	linkedList.Insert(2, 99)
 
 	for i := 0; i < 10; i++ {
 		linkedList.Remove(2)
