@@ -53,7 +53,7 @@ func (l *SingleLinkedList) Get(pos int) interface{} {
 	for i := 0; i < pos+1; i++ {
 		cur = cur.next
 	}
-	return cur
+	return cur.data
 }
 
 func (l *SingleLinkedList) Remove(pos int) interface{} {
@@ -105,6 +105,15 @@ func (l *SingleLinkedList) IsEmpty() bool {
 
 func (l *SingleLinkedList) Size() int {
 	return l.size
+}
+
+// Values 返回所有节点的值列表
+func (l *SingleLinkedList) Values() []interface{} {
+	values := make([]interface{}, l.size, l.size)
+	for i, cur := 0, l.dummyHead.next; cur != nil; i, cur = i+1, cur.next {
+		values[i] = cur.data
+	}
+	return values
 }
 
 func (l *SingleLinkedList) String() string {

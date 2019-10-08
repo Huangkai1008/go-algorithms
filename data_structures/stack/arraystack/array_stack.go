@@ -1,8 +1,9 @@
 package arraystack
 
 import (
-	"go-algorithms/data_structures/array"
 	"strings"
+
+	arr "go-algorithms/data_structures/array"
 )
 
 // ArrayStack 使用动态数组实现栈
@@ -10,13 +11,13 @@ import (
 // 使用数组末尾作为栈顶
 // 示意图为 Bottom [..., 1, 3, 5 ] Top
 type ArrayStack struct {
-	items *array.DynamicArray
+	items *arr.DynamicArray
 }
 
 // New 返回一个新的动态数组实现的空栈
 func New() *ArrayStack {
 	return &ArrayStack{
-		items: array.New(10),
+		items: arr.New(10),
 	}
 }
 
