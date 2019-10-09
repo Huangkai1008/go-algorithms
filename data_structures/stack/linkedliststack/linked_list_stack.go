@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	sll "go-algorithms/data_structures/linkedlist/singlelinkedlist"
+	ll "go-algorithms/data_structures/linkedlist"
 )
 
 // LinkedListStack 使用链表实现栈
@@ -12,13 +12,13 @@ import (
 // 使用链表头作为栈顶
 // 示意图为 Top(Head) [ 1, 3, 5 ...] Bottom(Tail)
 type LinkedListStack struct {
-	items *sll.SingleLinkedList
+	items *ll.SingleLinkedList
 }
 
 // New 返回一个新的单链表实现的空栈
 func New() *LinkedListStack {
 	return &LinkedListStack{
-		items: sll.New(),
+		items: ll.NewSll(),
 	}
 }
 

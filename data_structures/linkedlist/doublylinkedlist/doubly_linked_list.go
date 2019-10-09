@@ -19,11 +19,9 @@ type DoublyLinkedList struct {
 	size int         // 链表的长度
 }
 
-// New 返回一个空的双向链表
-func New() *DoublyLinkedList {
-	return &DoublyLinkedList{
-		size: 0,
-	}
+// NewDll 返回一个空的双向链表
+func NewDll() *DoublyLinkedList {
+	return &DoublyLinkedList{}
 }
 
 func (l *DoublyLinkedList) Add(data interface{}) {
@@ -35,6 +33,10 @@ func (l *DoublyLinkedList) Append(data interface{}) {
 }
 
 func (l *DoublyLinkedList) Insert(pos int, data interface{}) {
+	if pos < 0 || pos > l.size {
+		panic("Insert failed, position out of range.")
+	}
+
 	node := &DoubleNode{data: data}
 	if l.size == 0 {
 		l.head = node
@@ -62,7 +64,7 @@ func (l *DoublyLinkedList) Insert(pos int, data interface{}) {
 }
 
 func (l *DoublyLinkedList) Get(pos int) interface{} {
-	if pos >= l.size {
+	if pos < 0 || pos >= l.size {
 		panic("Get failed, position out of range.")
 	}
 
@@ -73,7 +75,7 @@ func (l *DoublyLinkedList) Get(pos int) interface{} {
 }
 
 func (l *DoublyLinkedList) Remove(pos int) interface{} {
-	if pos >= l.size {
+	if pos < 0 || pos >= l.size {
 		panic("Remove failed, position out of range.")
 	}
 

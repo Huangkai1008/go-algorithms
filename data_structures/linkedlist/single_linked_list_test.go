@@ -1,4 +1,4 @@
-package sll
+package linkedlist
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 )
 
 func TestSingleLinkedList(t *testing.T) {
-	linkedList := New()
+	linkedList := NewSll()
 	assert.Equal(t, true, linkedList.IsEmpty())
 	fmt.Println(linkedList)
 

@@ -1,4 +1,4 @@
-package sll
+package linkedlist
 
 import (
 	"fmt"
@@ -17,10 +17,10 @@ type SingleLinkedList struct {
 	size      int   // 链表的长度
 }
 
-func New() *SingleLinkedList {
+// NewSll 返回一个空的单链表
+func NewSll() *SingleLinkedList {
 	return &SingleLinkedList{
 		dummyHead: &Node{},
-		size:      0,
 	}
 }
 
@@ -33,6 +33,10 @@ func (l *SingleLinkedList) Append(data interface{}) {
 }
 
 func (l *SingleLinkedList) Insert(pos int, data interface{}) {
+	if pos < 0 || pos > l.size {
+		panic("Insert failed, position out of range.")
+	}
+
 	pre := l.dummyHead
 	for i := 0; i < pos; i++ {
 		pre = pre.next
@@ -45,19 +49,18 @@ func (l *SingleLinkedList) Insert(pos int, data interface{}) {
 }
 
 func (l *SingleLinkedList) Get(pos int) interface{} {
-	if pos >= l.size {
+	if pos < 0 || pos >= l.size {
 		panic("Get failed, position out of range.")
 	}
 
-	cur := l.dummyHead
-	for i := 0; i < pos+1; i++ {
-		cur = cur.next
+	cur := l.dummyHead.next
+	for i := 0; i < pos; i, cur = i+1, cur.next {
 	}
 	return cur.data
 }
 
 func (l *SingleLinkedList) Remove(pos int) interface{} {
-	if pos >= l.size {
+	if pos < 0 || pos >= l.size {
 		panic("Remove failed, position out of range.")
 	}
 

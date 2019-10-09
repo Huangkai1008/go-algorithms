@@ -8,7 +8,7 @@ import (
 )
 
 func TestDoublyLinkedList(t *testing.T) {
-	linkedList := New()
+	linkedList := NewDll()
 	assert.Equal(t, true, linkedList.IsEmpty())
 	fmt.Println(linkedList)
 
