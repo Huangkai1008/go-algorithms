@@ -19,6 +19,7 @@ Go 1.14+
   - [Dynamic Array](data_structures/array/dynamic_array.go)
 - [Linked List](data_structures/linkedlist)
   - [Singly Linked List](data_structures/linkedlist/singlelinkedlist/single_linked_list.go)
+  - [Doubly Linked List](data_structures/linkedlist/doublylinkedlist/doubly_linked_list.go)
 - [Stack](data_structures/stack)
   - [Array Stack](data_structures/stack/arraystack/array_stack.go)
   - [Slice Stack](data_structures/stack/slicestack/slice_stack.go)
