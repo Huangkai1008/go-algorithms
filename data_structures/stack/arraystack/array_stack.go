@@ -26,7 +26,7 @@ func (s *ArrayStack) Push(data interface{}) {
 }
 
 func (s *ArrayStack) Pop() interface{} {
-	if s.items.Size() == 0 {
+	if s.IsEmpty() {
 		panic("Can't pop from empty stack.")
 	}
 
@@ -34,7 +34,7 @@ func (s *ArrayStack) Pop() interface{} {
 }
 
 func (s *ArrayStack) Peek() interface{} {
-	if s.items.Size() == 0 {
+	if s.IsEmpty() {
 		panic("Can't peek from empty stack.")
 	}
 
