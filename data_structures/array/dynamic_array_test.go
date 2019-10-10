@@ -8,7 +8,7 @@ import (
 )
 
 func TestDynamicArray(t *testing.T) {
-	array := New(10)
+	array := New(WithCapacity(20))
 	assert.Equal(t, true, array.IsEmpty())
 
 	for i := 0; i < 19; i++ {

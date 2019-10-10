@@ -5,20 +5,12 @@ import (
 	"strings"
 )
 
-// Array 是数组的抽象类型
-type Array interface {
-	Get(index int) interface{}          // Get 返回数组索引位置元素的值
-	Append(item interface{})            // Append 添加元素到数组尾部
-	Set(index int, item interface{})    // Set 设置数组索引位置元素的值
-	Insert(index int, item interface{}) // Insert 插入元素到数组的索引位置
-	Remove(index int) interface{}       // Remove 删除数组索引位置的元素，并返回此元素的值
-	Contains(item interface{}) bool     // Contains 判断元素是否在数组中
-	Search(item interface{}) int        // Search 返回元素第一次出现的索引位置，如果元素不存在，返回-1
+var (
+	DefaultCapacity = 10
+)
 
-	IsEmpty() bool // IsEmpty 判断数组是否为空
-	Size() int     // Size 返回数组中元素的数量
-	Capacity() int // Capacity 返回数组的容量
-}
+// Option 数组初始化的选项函数
+type Option func(*DynamicArray)
 
 // DynamicArray 实现动态数组
 type DynamicArray struct {
@@ -27,13 +19,25 @@ type DynamicArray struct {
 	items    []interface{}
 }
 
-// New 返回一个空动态数组
-func New(capacity int) *DynamicArray {
-	return &DynamicArray{
-		capacity: capacity,
-		size:     0,
-		items:    make([]interface{}, capacity),
+// WithCapacity 设置数组的初始容量
+func WithCapacity(capacity int) Option {
+	return func(a *DynamicArray) {
+		a.capacity = capacity
 	}
+}
+
+// New 返回一个空动态数组
+func New(opts ...Option) *DynamicArray {
+	arr := DynamicArray{
+		capacity: DefaultCapacity,
+		size:     0,
+	}
+
+	for _, o := range opts {
+		o(&arr)
+	}
+	arr.items = make([]interface{}, arr.capacity)
+	return &arr
 }
 
 func (a *DynamicArray) Get(index int) interface{} {

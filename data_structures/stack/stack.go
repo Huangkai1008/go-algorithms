@@ -1,7 +1,7 @@
 package stack
 
 // Stack 是栈的抽象类型
-// 栈是一种后进先出（FIFO）的数据结构
+// 栈是一种后进先出（LIFO）的数据结构
 //
 // Ref: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
 type Stack interface {

@@ -17,7 +17,7 @@ type ArrayStack struct {
 // New 返回一个新的动态数组实现的空栈
 func New() *ArrayStack {
 	return &ArrayStack{
-		items: arr.New(10),
+		items: arr.New(),
 	}
 }
 
