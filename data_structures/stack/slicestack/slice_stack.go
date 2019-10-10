@@ -34,7 +34,7 @@ func (s *SliceStack) Pop() interface{} {
 
 func (s *SliceStack) Peek() interface{} {
 	if len(s.items) == 0 {
-		return nil
+		panic("Can't peek from empty stack.")
 	}
 
 	return s.items[len(s.items)-1]

@@ -27,10 +27,18 @@ func (s *LinkedListStack) Push(data interface{}) {
 }
 
 func (s *LinkedListStack) Pop() interface{} {
+	if s.items.Size() == 0 {
+		panic("Can't pop from empty stack.")
+	}
+
 	return s.items.Remove(0)
 }
 
 func (s *LinkedListStack) Peek() interface{} {
+	if s.items.Size() == 0 {
+		panic("Can't peek from empty stack.")
+	}
+
 	return s.items.Get(0)
 }
 
