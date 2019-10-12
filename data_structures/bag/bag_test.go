@@ -42,7 +42,7 @@ var _ = Describe("Bag", func() {
 	})
 })
 
-func TestBooks(t *testing.T) {
+func TestBag(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Bag Suite")
 }

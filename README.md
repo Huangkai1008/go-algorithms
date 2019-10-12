@@ -27,6 +27,8 @@ Go 1.14+
 
     
 ## Algorithms
+- [Sorts](algorithms/sorts)
+  - [Selection Sort](algorithms/sorts/selection_sort.go)
 
 ## License
 
