@@ -1,17 +1,17 @@
-package arrayqueue
+package queue
 
 import arr "go-algorithms/data_structures/array"
 
 // ArrayQueue 使用动态数组实现队列
 //
-// 使用数组头作为队列头，数组尾作为队列尾
+// 使用数组头作为队首，数组尾作为队尾
 // 示意图为 Front [1, 2, 3, ..., 9] Rear
 type ArrayQueue struct {
 	items *arr.DynamicArray
 }
 
-// New 返回一个空的动态数组实现的队列
-func New() *ArrayQueue {
+// NewAQ 返回一个空的动态数组实现的队列
+func NewAQ() *ArrayQueue {
 	return &ArrayQueue{arr.New()}
 }
 

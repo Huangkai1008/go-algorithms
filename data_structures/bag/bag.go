@@ -1,8 +1,9 @@
+// Package bag 实现了背包类型
+//
+// 背包是一种不支持从中删除元素的集合数据结构
 package bag
 
 // IBag 是背包的抽象类型
-//
-// 背包是一种不支持从中删除元素的集合数据结构
 type IBag interface {
 	Add(item interface{}) // Add 添加元素到背包中
 	IsEmpty() bool        // IsEmpty 判断背包是否为空
