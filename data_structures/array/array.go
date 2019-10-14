@@ -1,3 +1,6 @@
+// Package array 提供数组的定义与实现
+//
+// 比较常见的有定容数组和动态扩容数组(DynamicArray)
 package array
 
 // Array 是数组的抽象类型

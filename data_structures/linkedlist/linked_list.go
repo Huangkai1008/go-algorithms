@@ -1,3 +1,4 @@
+// Package linkedlist 提供链表的定义与实现
 package linkedlist
 
 // LinkedList 是链表的抽象类型
