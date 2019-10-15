@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-var _ = Describe("Queue", Ordered, func() {
+var _ = Describe("Queue", func() {
 	var queue Queue
 	AssertQueueBehavior := func() {
 		It("should be empty", func() {
@@ -15,7 +15,7 @@ var _ = Describe("Queue", Ordered, func() {
 			Expect(queue.Size()).To(BeZero())
 		})
 
-		Specify("Empty queue can't get front or dequeue", func() {
+		Specify("empty queue can't get front or dequeue", func() {
 			defer func() {
 				if r := recover(); r != nil {
 				}
@@ -24,7 +24,7 @@ var _ = Describe("Queue", Ordered, func() {
 			Expect(queue.GetFront()).Should(PanicWith(Equal("Can't get front from empty queue.")))
 		})
 
-		Specify("Enqueue two elements", func() {
+		Specify("enqueue two elements", func() {
 			queue.Enqueue(1)
 			queue.Enqueue(2)
 		})
@@ -34,15 +34,15 @@ var _ = Describe("Queue", Ordered, func() {
 			Expect(queue.Size()).To(Equal(2))
 		})
 
-		Specify("The dequeue element should be 1", func() {
+		Specify("the dequeue element should be 1", func() {
 			Expect(queue.Dequeue()).To(Equal(1))
 		})
-		Specify("The front element should be 2 after the 1 dequeued", func() {
+		Specify("the front element should be 2 after the 1 dequeued", func() {
 			Expect(queue.GetFront()).To(Equal(2))
 		})
 	}
 
-	Describe("ArrayQueue", func() {
+	Describe("ArrayQueue", Ordered, func() {
 		BeforeAll(func() {
 			queue = NewAQ()
 		})
@@ -50,7 +50,7 @@ var _ = Describe("Queue", Ordered, func() {
 		AssertQueueBehavior()
 	})
 
-	Describe("LinkedQueue", func() {
+	Describe("LinkedQueue", Ordered, func() {
 		BeforeAll(func() {
 			queue = NewLQ()
 		})
@@ -59,7 +59,7 @@ var _ = Describe("Queue", Ordered, func() {
 	})
 })
 
-func TestQueues(t *testing.T) {
+func TestQueue(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Queues Suite")
+	RunSpecs(t, "Queue Suite")
 }

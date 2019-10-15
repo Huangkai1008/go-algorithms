@@ -1,4 +1,4 @@
-package linkedliststack
+package stack
 
 import (
 	"fmt"
@@ -15,8 +15,8 @@ type LinkedListStack struct {
 	items *ll.SingleLinkedList
 }
 
-// New 返回一个新的单链表实现的空栈
-func New() *LinkedListStack {
+// NewLLStack 返回一个新的单链表实现的空栈
+func NewLLStack() *LinkedListStack {
 	return &LinkedListStack{
 		items: ll.NewSll(),
 	}

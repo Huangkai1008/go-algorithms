@@ -1,4 +1,4 @@
-package arraystack
+package stack
 
 import (
 	"strings"
@@ -14,8 +14,8 @@ type ArrayStack struct {
 	items *arr.DynamicArray
 }
 
-// New 返回一个新的动态数组实现的空栈
-func New() *ArrayStack {
+// NewArrayStack 返回一个新的动态数组实现的空栈
+func NewArrayStack() *ArrayStack {
 	return &ArrayStack{
 		items: arr.New(),
 	}

@@ -1,4 +1,4 @@
-package slicestack
+package stack
 
 import (
 	"fmt"
@@ -13,8 +13,8 @@ type SliceStack struct {
 	items []interface{}
 }
 
-// New 返回一个新的切片实现的空栈
-func New() *SliceStack {
+// NewSliceStack 返回一个新的切片实现的空栈
+func NewSliceStack() *SliceStack {
 	return &SliceStack{}
 }
 
