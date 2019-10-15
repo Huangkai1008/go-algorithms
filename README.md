@@ -24,7 +24,9 @@ Go 1.14+
 - [Stack](data_structures/stack)
   - [Array Stack](data_structures/stack/arraystack/array_stack.go)
   - [Slice Stack](data_structures/stack/slicestack/slice_stack.go)
-
+- [Queue](data_structures/queue)
+  - [Array Queue](data_structures/queue/array_queue.go)
+  - [Linked Queue](data_structures/queue/linked_queue.go)
     
 ## Algorithms
 - [Sorts](algorithms/sorts)
