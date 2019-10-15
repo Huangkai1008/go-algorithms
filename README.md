@@ -22,11 +22,12 @@ Go 1.14+
   - [Circular Linked List](data_structures/linkedlist/circular_linked_list.go)
   - [Doubly Linked List](data_structures/linkedlist/doublylinkedlist/doubly_linked_list.go)
 - [Stack](data_structures/stack)
-  - [Array Stack](data_structures/stack/arraystack/array_stack.go)
-  - [Slice Stack](data_structures/stack/slicestack/slice_stack.go)
+  - [Array Stack](data_structures/stack/array_stack.go)
+  - [Slice Stack](data_structures/stack/slice_stack.go)
 - [Queue](data_structures/queue)
   - [Array Queue](data_structures/queue/array_queue.go)
   - [Linked Queue](data_structures/queue/linked_queue.go)
+  - [Circular Array Queue](data_structures/queue/circular_array_queue.go)
     
 ## Algorithms
 - [Sorts](algorithms/sorts)
