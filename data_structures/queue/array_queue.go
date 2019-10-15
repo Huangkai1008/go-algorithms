@@ -10,8 +10,8 @@ type ArrayQueue struct {
 	items *arr.DynamicArray
 }
 
-// NewAQ 返回一个空的动态数组实现的队列
-func NewAQ() *ArrayQueue {
+// NewArrayQueue 返回一个空的动态数组实现的队列
+func NewArrayQueue() *ArrayQueue {
 	return &ArrayQueue{arr.New()}
 }
 

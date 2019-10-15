@@ -44,7 +44,7 @@ var _ = Describe("Queue", func() {
 
 	Describe("ArrayQueue", Ordered, func() {
 		BeforeAll(func() {
-			queue = NewAQ()
+			queue = NewArrayQueue()
 		})
 
 		AssertQueueBehavior()
@@ -52,7 +52,15 @@ var _ = Describe("Queue", func() {
 
 	Describe("LinkedQueue", Ordered, func() {
 		BeforeAll(func() {
-			queue = NewLQ()
+			queue = NewLinkedQueue()
+		})
+
+		AssertQueueBehavior()
+	})
+
+	Describe("CircularArrayQueue", Ordered, func() {
+		BeforeAll(func() {
+			queue = NewCircularArrayQueue(WithCapacity(5))
 		})
 
 		AssertQueueBehavior()

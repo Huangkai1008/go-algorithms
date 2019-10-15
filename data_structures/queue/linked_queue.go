@@ -16,8 +16,8 @@ type LinkedQueue struct {
 	size  int   // 队列的长度
 }
 
-// NewLQ 返回一个空的链表实现的队列
-func NewLQ() *LinkedQueue {
+// NewLinkedQueue 返回一个空的链表实现的队列
+func NewLinkedQueue() *LinkedQueue {
 	return &LinkedQueue{}
 }
 
