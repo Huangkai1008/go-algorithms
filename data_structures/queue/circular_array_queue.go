@@ -1,5 +1,10 @@
 package queue
 
+import (
+	"fmt"
+	"strings"
+)
+
 var (
 	DefaultCapacity = 10
 )
@@ -39,7 +44,7 @@ func NewCircularArrayQueue(opts ...Option) *CircularArrayQueue {
 
 func (q *CircularArrayQueue) Enqueue(data interface{}) {
 	if q.isFull() {
-		q.resize(q.getUseCapacity() * 2)
+		q.resize(q.useCapacity() * 2)
 	}
 
 	q.items[q.rear] = data
@@ -57,8 +62,8 @@ func (q *CircularArrayQueue) Dequeue() interface{} {
 	q.front = (q.front + 1) % q.capacity
 	q.size--
 
-	if q.size == q.getUseCapacity()/4 && q.getUseCapacity()/2 != 0 {
-		q.resize(q.getUseCapacity() / 2)
+	if q.size == q.useCapacity()/4 && q.useCapacity()/2 != 0 {
+		q.resize(q.useCapacity() / 2)
 	}
 	return data
 }
@@ -79,9 +84,9 @@ func (q *CircularArrayQueue) Size() int {
 	return q.size
 }
 
-// getUseCapacity 获取最大可用容量
-func (q *CircularArrayQueue) getUseCapacity() int {
-	return q.capacity - 1
+// useCapacity 返回最大可用容量
+func (q *CircularArrayQueue) useCapacity() int {
+	return len(q.items) - 1
 }
 
 // isFull 判断队列是否已满
@@ -98,4 +103,18 @@ func (q *CircularArrayQueue) resize(capacity int) {
 	q.items = newItems
 	q.front = 0
 	q.rear = q.size
+	q.capacity = capacity + 1
+}
+
+func (q *CircularArrayQueue) String() string {
+	var builder strings.Builder
+	builder.WriteString("Front: [")
+	for i := q.front; i != q.rear; i = (i + 1) % q.capacity {
+		builder.WriteString(fmt.Sprint(q.items[i]))
+		if (i+1)%q.capacity != q.rear {
+			builder.WriteString(" ,")
+		}
+	}
+	builder.WriteString("] Rear")
+	return builder.String()
 }

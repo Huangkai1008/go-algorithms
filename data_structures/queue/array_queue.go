@@ -1,6 +1,10 @@
 package queue
 
-import arr "go-algorithms/data_structures/array"
+import (
+	"strings"
+
+	arr "go-algorithms/data_structures/array"
+)
 
 // ArrayQueue 使用动态数组实现队列
 //
@@ -41,4 +45,12 @@ func (q *ArrayQueue) IsEmpty() bool {
 
 func (q *ArrayQueue) Size() int {
 	return q.items.Size()
+}
+
+func (q *ArrayQueue) String() string {
+	var builder strings.Builder
+	builder.WriteString("Front: ")
+	builder.WriteString(q.items.String())
+	builder.WriteString(" Rear")
+	return builder.String()
 }

@@ -24,14 +24,15 @@ var _ = Describe("Queue", func() {
 			Expect(queue.GetFront()).Should(PanicWith(Equal("Can't get front from empty queue.")))
 		})
 
-		Specify("enqueue two elements", func() {
-			queue.Enqueue(1)
-			queue.Enqueue(2)
+		Specify("enqueue 10 elements", func() {
+			for i := 1; i < 11; i++ {
+				queue.Enqueue(i)
+			}
 		})
 
 		It("should not be empty", func() {
 			Expect(queue.IsEmpty()).To(BeFalse())
-			Expect(queue.Size()).To(Equal(2))
+			Expect(queue.Size()).To(Equal(10))
 		})
 
 		Specify("the dequeue element should be 1", func() {
@@ -39,7 +40,9 @@ var _ = Describe("Queue", func() {
 		})
 		Specify("the front element should be 2 after the 1 dequeued", func() {
 			Expect(queue.GetFront()).To(Equal(2))
+			GinkgoWriter.Println(queue)
 		})
+
 	}
 
 	Describe("ArrayQueue", Ordered, func() {

@@ -1,5 +1,10 @@
 package queue
 
+import (
+	"fmt"
+	"strings"
+)
+
 // Node 链表的节点
 type Node struct {
 	data interface{}
@@ -60,4 +65,14 @@ func (q *LinkedQueue) IsEmpty() bool {
 
 func (q *LinkedQueue) Size() int {
 	return q.size
+}
+
+func (q *LinkedQueue) String() string {
+	var builder strings.Builder
+	builder.WriteString("Front: ")
+	for cur := q.front; cur != nil; cur = cur.next {
+		builder.WriteString(fmt.Sprintf("%v-->", cur.data))
+	}
+	builder.WriteString(" Rear")
+	return builder.String()
 }
