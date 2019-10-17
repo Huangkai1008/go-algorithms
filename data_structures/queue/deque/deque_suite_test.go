@@ -66,6 +66,13 @@ var _ = Describe("Deque", func() {
 		AssertDequeBehavior()
 	})
 
+	Describe("LinkedDeque", Ordered, func() {
+		BeforeAll(func() {
+			deque = NewLinkedDeque()
+		})
+
+		AssertDequeBehavior()
+	})
 })
 
 func TestDeque(t *testing.T) {
