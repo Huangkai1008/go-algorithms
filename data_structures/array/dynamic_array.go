@@ -66,7 +66,7 @@ func (a *DynamicArray) Set(index int, item interface{}) {
 }
 
 func (a *DynamicArray) Insert(index int, item interface{}) {
-	if index < 0 || index >= a.size {
+	if index < 0 || index > a.size {
 		panic("Insert item failed, index out of range.")
 	}
 

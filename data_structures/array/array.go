@@ -12,8 +12,7 @@ type Array interface {
 	Remove(index int) interface{}       // Remove 删除数组索引位置的元素，并返回此元素的值
 	Contains(item interface{}) bool     // Contains 判断元素是否在数组中
 	Search(item interface{}) int        // Search 返回元素第一次出现的索引位置，如果元素不存在，返回-1
-
-	IsEmpty() bool // IsEmpty 判断数组是否为空
-	Size() int     // Size 返回数组中元素的数量
-	Capacity() int // Capacity 返回数组的容量
+	IsEmpty() bool                      // IsEmpty 判断数组是否为空
+	Size() int                          // Size 返回数组中元素的数量
+	Capacity() int                      // Capacity 返回数组的容量
 }
