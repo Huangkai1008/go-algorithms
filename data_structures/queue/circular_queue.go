@@ -18,7 +18,7 @@ type CircularQueue struct {
 	rear     int           // 队尾的索引
 	size     int           // 队列的长度
 	capacity int           // 队列的容量
-	items    []interface{} // 队列的底层数组存储
+	items    []interface{} // 队列的底层数组
 }
 
 // WithCapacity 设置队列的初始容量

@@ -30,6 +30,7 @@ Go 1.14+
     - [Array Queue](data_structures/queue/array_queue.go)
     - [Linked Queue](data_structures/queue/linked_queue.go)
     - [Circular Array Queue](data_structures/queue/circular_queue.go)
+    - [Array Deque](data_structures/queue/deque/array_deque.go)
 
 ## Algorithms
 
