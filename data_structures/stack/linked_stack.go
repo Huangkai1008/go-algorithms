@@ -15,8 +15,8 @@ type LinkedListStack struct {
 	items *ll.SingleLinkedList
 }
 
-// NewLLStack 返回一个新的单链表实现的空栈
-func NewLLStack() *LinkedListStack {
+// NewLinkedStack 返回一个新的单链表实现的空栈
+func NewLinkedStack() *LinkedListStack {
 	return &LinkedListStack{
 		items: ll.NewSll(),
 	}

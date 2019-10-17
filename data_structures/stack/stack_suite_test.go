@@ -53,7 +53,7 @@ var _ = Describe("Stack", func() {
 
 	Describe("LinkedListStack", Ordered, func() {
 		BeforeAll(func() {
-			stack = NewLLStack()
+			stack = NewLinkedStack()
 		})
 
 		AssertQueueBehavior()
