@@ -10,10 +10,10 @@ var (
 )
 
 // Option 循环队列初始化的选项函数
-type Option func(*CircularArrayQueue)
+type Option func(*CircularQueue)
 
-// CircularArrayQueue 使用动态数组实现循环队列
-type CircularArrayQueue struct {
+// CircularQueue 使用动态数组实现循环队列
+type CircularQueue struct {
 	front    int           // 队首的索引
 	rear     int           // 队尾的索引
 	size     int           // 队列的长度
@@ -23,14 +23,14 @@ type CircularArrayQueue struct {
 
 // WithCapacity 设置队列的初始容量
 func WithCapacity(capacity int) Option {
-	return func(q *CircularArrayQueue) {
+	return func(q *CircularQueue) {
 		q.capacity = capacity + 1
 	}
 }
 
 // NewCircularArrayQueue 返回数组实现的空循环队列
-func NewCircularArrayQueue(opts ...Option) *CircularArrayQueue {
-	q := CircularArrayQueue{
+func NewCircularArrayQueue(opts ...Option) *CircularQueue {
+	q := CircularQueue{
 		size:     0,
 		capacity: DefaultCapacity + 1,
 	}
@@ -42,7 +42,7 @@ func NewCircularArrayQueue(opts ...Option) *CircularArrayQueue {
 	return &q
 }
 
-func (q *CircularArrayQueue) Enqueue(data interface{}) {
+func (q *CircularQueue) Enqueue(data interface{}) {
 	if q.isFull() {
 		q.resize(q.useCapacity() * 2)
 	}
@@ -52,7 +52,7 @@ func (q *CircularArrayQueue) Enqueue(data interface{}) {
 	q.size++
 }
 
-func (q *CircularArrayQueue) Dequeue() interface{} {
+func (q *CircularQueue) Dequeue() interface{} {
 	if q.IsEmpty() {
 		panic("Can't dequeue from empty queue.")
 	}
@@ -68,7 +68,7 @@ func (q *CircularArrayQueue) Dequeue() interface{} {
 	return data
 }
 
-func (q *CircularArrayQueue) GetFront() interface{} {
+func (q *CircularQueue) GetFront() interface{} {
 	if q.IsEmpty() {
 		panic("Can't get front from empty queue.")
 	}
@@ -76,26 +76,26 @@ func (q *CircularArrayQueue) GetFront() interface{} {
 	return q.items[q.front]
 }
 
-func (q *CircularArrayQueue) IsEmpty() bool {
+func (q *CircularQueue) IsEmpty() bool {
 	return q.front == q.rear
 }
 
-func (q *CircularArrayQueue) Size() int {
+func (q *CircularQueue) Size() int {
 	return q.size
 }
 
 // useCapacity 返回最大可用容量
-func (q *CircularArrayQueue) useCapacity() int {
+func (q *CircularQueue) useCapacity() int {
 	return len(q.items) - 1
 }
 
 // isFull 判断队列是否已满
-func (q *CircularArrayQueue) isFull() bool {
+func (q *CircularQueue) isFull() bool {
 	return (q.rear+1)%q.capacity == q.front
 }
 
 // resize 队列扩缩容
-func (q *CircularArrayQueue) resize(capacity int) {
+func (q *CircularQueue) resize(capacity int) {
 	newItems := make([]interface{}, capacity+1)
 	for i := 0; i < q.size; i++ {
 		newItems[i] = q.items[(i+q.front)%q.capacity]
@@ -106,7 +106,7 @@ func (q *CircularArrayQueue) resize(capacity int) {
 	q.capacity = capacity + 1
 }
 
-func (q *CircularArrayQueue) String() string {
+func (q *CircularQueue) String() string {
 	var builder strings.Builder
 	builder.WriteString("Front: [")
 	for i := q.front; i != q.rear; i = (i + 1) % q.capacity {

@@ -61,7 +61,7 @@ var _ = Describe("Queue", func() {
 		AssertQueueBehavior()
 	})
 
-	Describe("CircularArrayQueue", Ordered, func() {
+	Describe("CircularQueue", Ordered, func() {
 		BeforeAll(func() {
 			queue = NewCircularArrayQueue(WithCapacity(5))
 		})
