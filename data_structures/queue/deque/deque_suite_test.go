@@ -73,6 +73,14 @@ var _ = Describe("Deque", func() {
 
 		AssertDequeBehavior()
 	})
+
+	Describe("CircularDeque", Ordered, func() {
+		BeforeAll(func() {
+			deque = NewCircularDeque(WithCapacity(5))
+		})
+
+		AssertDequeBehavior()
+	})
 })
 
 func TestDeque(t *testing.T) {
