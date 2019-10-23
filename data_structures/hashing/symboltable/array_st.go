@@ -8,10 +8,10 @@ type Option func(*ArrayST)
 
 // ArrayST 平行数组实现符号表
 type ArrayST struct {
-	keys     []Key
-	values   []Value
-	size     int
-	capacity int
+	keys     []Key   // 符号表键的存储数组
+	values   []Value // 符号表值的存储数组
+	size     int     // 符号表的键值对个数
+	capacity int     // 符号表的容量
 }
 
 // WithCapacity 设置符号表的初始容量
@@ -31,6 +31,9 @@ func NewArrayST(opts ...Option) *ArrayST {
 	for _, o := range opts {
 		o(&st)
 	}
+	st.keys = make([]Key, st.capacity)
+	st.values = make([]Value, st.capacity)
+
 	return &st
 }
 
@@ -57,7 +60,7 @@ func (st *ArrayST) Get(key Key) (Value, error) {
 			return st.values[i], nil
 		}
 	}
-	return "", errors.New("keyError")
+	return 0, errors.New("keyError")
 }
 
 func (st *ArrayST) Delete(key Key) {

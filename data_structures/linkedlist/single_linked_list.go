@@ -107,7 +107,7 @@ func (l *SingleLinkedList) Size() int {
 
 // Values 返回所有节点的值列表
 func (l *SingleLinkedList) Values() []interface{} {
-	values := make([]interface{}, l.size, l.size)
+	values := make([]interface{}, l.size)
 	for i, cur := 0, l.dummyHead.next; cur != nil; i, cur = i+1, cur.next {
 		values[i] = cur.data
 	}

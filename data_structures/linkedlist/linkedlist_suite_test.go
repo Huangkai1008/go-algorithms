@@ -94,7 +94,7 @@ var _ = Describe("LinkedList", func() {
 	})
 })
 
-func TestLinkedlist(t *testing.T) {
+func TestLinkedList(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Linkedlist Suite")
+	RunSpecs(t, "LinkedList Suite")
 }
