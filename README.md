@@ -34,6 +34,8 @@ Go 1.14+
         * [Array Deque](data_structures/queue/deque/array_deque.go)
         * [Linked Deque](data_structures/queue/deque/linked_deque.go)
         * [Circular Deque](data_structures/queue/deque/circular_deque.go)
+- [Hashing](data_structures/hashing)
+    - [Array Symbol Table](data_structures/hashing/symboltable/array_st.go)
 
 ## Algorithms
 
