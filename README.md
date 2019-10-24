@@ -36,6 +36,7 @@ Go 1.14+
         * [Circular Deque](data_structures/queue/deque/circular_deque.go)
 - [Hashing](data_structures/hashing)
     - [Array Symbol Table](data_structures/hashing/symboltable/array_st.go)
+    - [Sequential Search Symbol Table](data_structures/hashing/symboltable/sequential_search_st.go)
 
 ## Algorithms
 
