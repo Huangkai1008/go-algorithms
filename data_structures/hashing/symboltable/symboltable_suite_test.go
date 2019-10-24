@@ -69,6 +69,14 @@ var _ = Describe("SymbolTable", func() {
 
 		AssertSTBehavior()
 	})
+
+	Describe("SeqSearchST", Ordered, func() {
+		BeforeAll(func() {
+			st = NewSequentialSearchST()
+		})
+
+		AssertSTBehavior()
+	})
 })
 
 func TestSymbolTable(t *testing.T) {
