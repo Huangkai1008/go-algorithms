@@ -94,6 +94,10 @@ func (st *ArrayST) Size() int {
 	return st.size
 }
 
+func (st *ArrayST) Keys() []Key {
+	return st.keys[:st.size]
+}
+
 // resize 符号表扩缩容
 func (st *ArrayST) resize(capacity int) {
 	newKeys, newValues := make([]Key, capacity), make([]Value, capacity)

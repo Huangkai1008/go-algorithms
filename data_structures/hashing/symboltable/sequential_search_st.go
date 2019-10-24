@@ -74,3 +74,11 @@ func (st *SequentialSearchST) IsEmpty() bool {
 func (st *SequentialSearchST) Size() int {
 	return st.size
 }
+
+func (st *SequentialSearchST) Keys() []Key {
+	keys := make([]Key, st.size)
+	for i, cur := 0, st.dummyHead.next; cur != nil; i, cur = i+1, cur.next {
+		keys[i] = cur.key
+	}
+	return keys
+}
