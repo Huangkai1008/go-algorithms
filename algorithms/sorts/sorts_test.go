@@ -61,6 +61,14 @@ var _ = Describe("Sorts", func() {
 
 		AssertSortBehavior()
 	})
+
+	Describe("Merge Sort", func() {
+		BeforeEach(func() {
+			sort = MergeSort
+		})
+
+		AssertSortBehavior()
+	})
 })
 
 func TestSorts(t *testing.T) {
