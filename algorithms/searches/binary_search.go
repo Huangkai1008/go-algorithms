@@ -25,3 +25,19 @@ func binarySearchByRecur(items []int, target, low, high int) int {
 		return binarySearchByRecur(items, target, mid+1, high)
 	}
 }
+
+// BinarySearch 二分查找法的非递归实现
+func BinarySearch(items []int, target int) int {
+	low, high := 0, len(items)-1
+	for low <= high {
+		mid := low + (high-low)/2
+		if items[mid] > target {
+			high = mid - 1
+		} else if items[mid] < target {
+			low = mid + 1
+		} else {
+			return mid
+		}
+	}
+	return -1
+}

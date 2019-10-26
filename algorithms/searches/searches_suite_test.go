@@ -53,6 +53,14 @@ var _ = Describe("Searches", func() {
 
 		AssertSortBehavior()
 	})
+
+	Describe("Binary Search", func() {
+		BeforeEach(func() {
+			search = BinarySearch
+		})
+
+		AssertSortBehavior()
+	})
 })
 
 func TestSearches(t *testing.T) {
