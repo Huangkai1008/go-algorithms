@@ -43,6 +43,8 @@ Go 1.14+
 - [Sorts](algorithms/sorts)
     - [Selection Sort](algorithms/sorts/selection_sort.go)
     - [Insertion Sort](algorithms/sorts/insertion_sort.go)
+- [Searches](algorithms/searches)
+    - [Binary Search](algorithms/searches/binary_search.go)
 
 ## License
 
