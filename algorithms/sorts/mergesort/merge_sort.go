@@ -1,5 +1,8 @@
 package sorts
 
+// MergeSort 归并排序自顶而下实现
+//
+// References: https://en.wikipedia.org/wiki/Merge_sort
 func MergeSort(items []int) {
 	aux := make([]int, len(items))
 	mergeSort(items, 0, len(items)-1, aux)

@@ -90,6 +90,10 @@ var _ = Describe("Sorts", func() {
 		AssertSortedBehavior(sorts.MergeSorted)
 	})
 
+	Describe("Merge Sort BU", func() {
+		AssertSortBehavior(sorts.MergeSortBU)
+	})
+
 })
 
 func TestSorts(t *testing.T) {
