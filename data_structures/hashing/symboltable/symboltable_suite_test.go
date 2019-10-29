@@ -17,6 +17,12 @@ var _ = Describe("SymbolTable", func() {
 			"O", "P", "Q", "R", "S", "T", "U",
 			"V", "W", "X", "Y", "Z",
 		}
+
+		orderedSt OrderedST
+		letters   = [...]string{
+			"S", "E", "A", "R", "C", "H",
+			"E", "X", "A", "M", "P", "L", "E",
+		}
 	)
 
 	AssertSTBehavior := func() {
@@ -62,6 +68,30 @@ var _ = Describe("SymbolTable", func() {
 
 	}
 
+	AssertOrderedSTBehavior := func() {
+		It("should be empty", func() {
+			Expect(orderedSt.IsEmpty()).To(BeTrue())
+			Expect(orderedSt.Size()).To(BeZero())
+		})
+
+		Specify("put letters", func() {
+			for i, letter := range letters {
+				orderedSt.Put(Key(letter), Value(i))
+			}
+
+			Expect(orderedSt.Size()).To(Equal(10))
+			Expect(orderedSt.Min()).To(BeEquivalentTo("A"))
+			Expect(orderedSt.Max()).To(BeEquivalentTo("X"))
+		})
+
+		It("can get value by key", func() {
+			for _, key := range orderedSt.Keys() {
+				_, err := orderedSt.Get(key)
+				Expect(err).ShouldNot(HaveOccurred())
+			}
+		})
+	}
+
 	Describe("ArrayST", Ordered, func() {
 		BeforeAll(func() {
 			st = NewArrayST(WithCapacity(5))
@@ -76,6 +106,14 @@ var _ = Describe("SymbolTable", func() {
 		})
 
 		AssertSTBehavior()
+	})
+
+	Describe("BinarySearchST", Ordered, func() {
+		BeforeAll(func() {
+			orderedSt = NewBinarySearchST()
+		})
+
+		AssertOrderedSTBehavior()
 	})
 })
 

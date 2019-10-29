@@ -12,7 +12,7 @@ type OrderedST interface {
 	Select(k int) Key                  // 排名为K的键
 	DeleteMin()                        // 删除最小的键
 	DeleteMax()                        // 删除最大的键
-	RangeSize(low Key, high Key)       // [low...high]之间键的数量
+	RangeSize(low Key, high Key) int   // [low...high]之间键的数量
 	RangeKeys(low Key, high Key) []Key // [low...high]之间的所有排序后的键
 	Keys() []Key                       // 符号表中所有键排序后的列表
 }
