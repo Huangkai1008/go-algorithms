@@ -34,3 +34,35 @@ func (t *BST) IsEmpty() bool {
 func (t *BST) Size() int {
 	return t.size
 }
+
+// Add 添加新的节点到二分搜索树中
+func (t *BST) Add(data T) {
+	if t.root == nil {
+		t.root = &Node{data: data}
+		t.size++
+	} else {
+		t.add(t.root, data)
+	}
+}
+
+// add 插入元素到以node为根的二分搜索树中
+// 返回插入新节点后二分搜索树的根
+func (t *BST) add(node *Node, data T) {
+	if data == node.data {
+		return
+	} else if data < node.data && node.left == nil {
+		node.left = &Node{data: data}
+		t.size++
+		return
+	} else if data > node.data && node.right == nil {
+		node.right = &Node{data: data}
+		t.size++
+		return
+	}
+
+	if data < node.data {
+		t.add(node.left, data)
+	} else {
+		t.add(node.right, data)
+	}
+}
