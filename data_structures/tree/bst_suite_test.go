@@ -1,0 +1,47 @@
+package tree
+
+import (
+	"testing"
+
+	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
+)
+
+var _ = Describe("BST", func() {
+	var bst *BST
+	AssertBSTBehavior := func() {
+		It("should be empty", func() {
+			Expect(bst.IsEmpty()).To(BeTrue())
+			Expect(bst.Size()).To(BeZero())
+		})
+
+		It("can Add nodes", func() {
+			bst.Add(10)
+			bst.Add(19)
+			bst.Add(5)
+			bst.Add(18)
+			bst.Add(27)
+			bst.Add(1)
+			bst.Add(10)
+			bst.Add(18)
+			bst.Add(15)
+			bst.Add(22)
+
+			Expect(bst.IsEmpty()).To(BeFalse())
+			Expect(bst.Size()).To(Equal(8))
+		})
+	}
+
+	Describe("BST", Ordered, func() {
+		BeforeAll(func() {
+			bst = NewBST()
+		})
+
+		AssertBSTBehavior()
+	})
+})
+
+func TestBST(t *testing.T) {
+	RegisterFailHandler(Fail)
+	RunSpecs(t, "BST Suite")
+}
