@@ -82,6 +82,10 @@ var _ = Describe("Sorts", func() {
 		AssertSortBehavior(InsertionSort)
 	})
 
+	Describe("Bubble Sort", func() {
+		AssertSortBehavior(BubbleSort)
+	})
+
 	Describe("Merge Sort", func() {
 		AssertSortBehavior(sorts.MergeSort)
 	})
