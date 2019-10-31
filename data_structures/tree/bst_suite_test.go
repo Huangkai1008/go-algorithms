@@ -30,6 +30,13 @@ var _ = Describe("BST", func() {
 			Expect(bst.IsEmpty()).To(BeFalse())
 			Expect(bst.Size()).To(Equal(8))
 		})
+
+		It("can know whether node contains", func() {
+			Expect(bst.Contains(10)).To(BeTrue())
+			Expect(bst.Contains(19)).To(BeTrue())
+			Expect(bst.Contains(5)).To(BeTrue())
+			Expect(bst.Contains(11)).To(BeFalse())
+		})
 	}
 
 	Describe("BST", Ordered, func() {

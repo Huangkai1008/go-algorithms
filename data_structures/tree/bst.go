@@ -55,3 +55,23 @@ func (t *BST) add(node *Node, data T) *Node {
 	}
 	return node
 }
+
+// Contains 判断元素是否在二分搜索树中
+func (t *BST) Contains(data T) bool {
+	return t.contains(t.root, data)
+}
+
+// contains 判断元素是否在以node为根的二分搜索树中
+func (t *BST) contains(node *Node, data T) bool {
+	if node == nil {
+		return false
+	}
+
+	if data == node.data {
+		return true
+	} else if data < node.data {
+		return t.contains(node.left, data)
+	} else {
+		return t.contains(node.right, data)
+	}
+}
