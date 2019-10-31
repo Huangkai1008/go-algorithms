@@ -1,5 +1,7 @@
 package tree
 
+import "fmt"
+
 type T int
 
 type Node struct {
@@ -40,6 +42,18 @@ func (t *BST) Add(data T) {
 	t.root = t.add(t.root, data)
 }
 
+// Contains 判断元素是否在二分搜索树中
+func (t *BST) Contains(data T) bool {
+	return t.contains(t.root, data)
+}
+
+// PreOrder 二分搜索树的前序遍历
+//
+// 遍历顺序：根节点 --> 左子树 --> 右子树
+func (t *BST) PreOrder() {
+	t.preOrder(t.root)
+}
+
 // add 插入元素到以node为根的二分搜索树中
 // 返回插入新节点后二分搜索树的根
 func (t *BST) add(node *Node, data T) *Node {
@@ -56,11 +70,6 @@ func (t *BST) add(node *Node, data T) *Node {
 	return node
 }
 
-// Contains 判断元素是否在二分搜索树中
-func (t *BST) Contains(data T) bool {
-	return t.contains(t.root, data)
-}
-
 // contains 判断元素是否在以node为根的二分搜索树中
 func (t *BST) contains(node *Node, data T) bool {
 	if node == nil {
@@ -74,4 +83,15 @@ func (t *BST) contains(node *Node, data T) bool {
 	} else {
 		return t.contains(node.right, data)
 	}
+}
+
+// preOrder 前序遍历以Node为根的二分搜索树
+func (t *BST) preOrder(node *Node) {
+	if node == nil {
+		return
+	}
+
+	fmt.Print(node.data, " ")
+	t.preOrder(node.left)
+	t.preOrder(node.right)
 }

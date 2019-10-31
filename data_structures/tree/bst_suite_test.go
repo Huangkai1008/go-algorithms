@@ -37,6 +37,10 @@ var _ = Describe("BST", func() {
 			Expect(bst.Contains(5)).To(BeTrue())
 			Expect(bst.Contains(11)).To(BeFalse())
 		})
+
+		Specify("pre order traverse", func() {
+			bst.PreOrder()
+		})
 	}
 
 	Describe("BST", Ordered, func() {
