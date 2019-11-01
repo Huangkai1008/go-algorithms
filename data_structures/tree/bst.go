@@ -68,6 +68,30 @@ func (t *BST) PostOrder() {
 	t.postOrder(t.root)
 }
 
+// PreOrderNR 前序遍历非递归实现
+func (t *BST) PreOrderNR() {
+	if t.IsEmpty() {
+		return
+	}
+
+	var stack []*Node
+	stack = append(stack, t.root)
+	for len(stack) > 0 {
+		cur := stack[len(stack)-1]
+		fmt.Print(cur.data, " ")
+
+		stack = stack[:len(stack)-1] // 出栈
+
+		// 先压入右子树再压入左子树
+		if cur.right != nil {
+			stack = append(stack, cur.right)
+		}
+		if cur.left != nil {
+			stack = append(stack, cur.left)
+		}
+	}
+}
+
 // add 插入元素到以node为根的二分搜索树中
 // 返回插入新节点后二分搜索树的根
 func (t *BST) add(node *Node, data T) *Node {
