@@ -54,6 +54,20 @@ func (t *BST) PreOrder() {
 	t.preOrder(t.root)
 }
 
+// InOrder 二分搜索树的中序遍历
+//
+// 遍历顺序：左子树 --> 根节点 --> 右子树
+func (t *BST) InOrder() {
+	t.inOrder(t.root)
+}
+
+// PostOrder 二分搜索树的后序遍历
+//
+// 遍历顺序：左子树 --> 右子树 --> 根节点
+func (t *BST) PostOrder() {
+	t.postOrder(t.root)
+}
+
 // add 插入元素到以node为根的二分搜索树中
 // 返回插入新节点后二分搜索树的根
 func (t *BST) add(node *Node, data T) *Node {
@@ -94,4 +108,26 @@ func (t *BST) preOrder(node *Node) {
 	fmt.Print(node.data, " ")
 	t.preOrder(node.left)
 	t.preOrder(node.right)
+}
+
+// inOrder 中序遍历以Node为根的二分搜索树
+func (t *BST) inOrder(node *Node) {
+	if node == nil {
+		return
+	}
+
+	t.inOrder(node.left)
+	fmt.Print(node.data, " ")
+	t.inOrder(node.right)
+}
+
+// postOrder 中序遍历以Node为根的二分搜索树
+func (t BST) postOrder(node *Node) {
+	if node == nil {
+		return
+	}
+
+	t.postOrder(node.left)
+	t.postOrder(node.right)
+	fmt.Print(node.data, " ")
 }

@@ -40,6 +40,17 @@ var _ = Describe("BST", func() {
 
 		Specify("pre order traverse", func() {
 			bst.PreOrder()
+			GinkgoWriter.Println("\n")
+		})
+
+		Specify("in order traverse", func() {
+			bst.InOrder()
+			GinkgoWriter.Println("\n")
+		})
+
+		Specify("post order traverse", func() {
+			bst.PostOrder()
+			GinkgoWriter.Println("\n")
 		})
 	}
 
