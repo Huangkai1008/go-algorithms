@@ -92,6 +92,29 @@ func (t *BST) PreOrderNR() {
 	}
 }
 
+// LevelOrder 层序遍历非递归实现
+func (t *BST) LevelOrder() {
+	if t.IsEmpty() {
+		return
+	}
+
+	var queue []*Node
+	queue = append(queue, t.root)
+	for len(queue) > 0 {
+		cur := queue[0]
+		fmt.Print(cur.data, " ")
+
+		queue = queue[1:]
+
+		if cur.left != nil {
+			queue = append(queue, cur.left)
+		}
+		if cur.right != nil {
+			queue = append(queue, cur.right)
+		}
+	}
+}
+
 // add 插入元素到以node为根的二分搜索树中
 // 返回插入新节点后二分搜索树的根
 func (t *BST) add(node *Node, data T) *Node {

@@ -57,6 +57,11 @@ var _ = Describe("BST", func() {
 			bst.PreOrderNR()
 			GinkgoWriter.Println("\n")
 		})
+
+		Specify("level order", func() {
+			bst.LevelOrder()
+			GinkgoWriter.Println("\n")
+		})
 	}
 
 	Describe("BST", Ordered, func() {
