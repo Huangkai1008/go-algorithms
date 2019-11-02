@@ -115,6 +115,24 @@ func (t *BST) LevelOrder() {
 	}
 }
 
+// Min 返回最小的元素
+func (t *BST) Min() T {
+	if t.IsEmpty() {
+		panic("Get min node from empty bst.")
+	}
+
+	return t.min(t.root).data
+}
+
+// Max 返回最大的元素
+func (t *BST) Max() T {
+	if t.IsEmpty() {
+		panic("Get max node from empty bst.")
+	}
+
+	return t.max(t.root).data
+}
+
 // add 插入元素到以node为根的二分搜索树中
 // 返回插入新节点后二分搜索树的根
 func (t *BST) add(node *Node, data T) *Node {
@@ -177,4 +195,22 @@ func (t BST) postOrder(node *Node) {
 	t.postOrder(node.left)
 	t.postOrder(node.right)
 	fmt.Print(node.data, " ")
+}
+
+// min 返回以node为根的二分搜索树的最小元素所在的节点
+func (t *BST) min(node *Node) *Node {
+	if node.left == nil {
+		return node
+	}
+
+	return t.min(node.left)
+}
+
+// max 返回以node为根的二分搜索树的最大元素所在的节点
+func (t *BST) max(node *Node) *Node {
+	if node.right == nil {
+		return node
+	}
+
+	return t.max(node.right)
 }

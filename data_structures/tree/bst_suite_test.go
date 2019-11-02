@@ -62,6 +62,11 @@ var _ = Describe("BST", func() {
 			bst.LevelOrder()
 			GinkgoWriter.Println("\n")
 		})
+
+		Specify("get min/max node", func() {
+			Expect(bst.Min()).To(BeEquivalentTo(1))
+			Expect(bst.Max()).To(BeEquivalentTo(27))
+		})
 	}
 
 	Describe("BST", Ordered, func() {
