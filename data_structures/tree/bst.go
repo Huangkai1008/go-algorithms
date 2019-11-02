@@ -133,6 +133,22 @@ func (t *BST) Max() T {
 	return t.max(t.root).data
 }
 
+// RemoveMin 从二分搜索树中删除最小值所在节点
+// 返回最小值
+func (t *BST) RemoveMin() T {
+	min := t.Min()
+	t.removeMin(t.root)
+	return min
+}
+
+// RemoveMax 从二分搜索树中删除最大值所在节点
+// 返回最大值
+func (t *BST) RemoveMax() T {
+	max := t.Max()
+	t.removeMax(t.root)
+	return max
+}
+
 // add 插入元素到以node为根的二分搜索树中
 // 返回插入新节点后二分搜索树的根
 func (t *BST) add(node *Node, data T) *Node {
@@ -213,4 +229,32 @@ func (t *BST) max(node *Node) *Node {
 	}
 
 	return t.max(node.right)
+}
+
+// removeMin 从以node为根的二分搜索树中删除最小节点
+// 返回删除节点后新的二分搜索树的根节点
+func (t *BST) removeMin(node *Node) *Node {
+	if node.left == nil {
+		right := node.right
+		node.right = nil
+		t.size--
+		return right
+	}
+
+	node.left = t.removeMin(node.left)
+	return node
+}
+
+// removeMax 从以node为根的二分搜索树中删除最大节点
+// 返回删除节点后新的二分搜索树的根节点
+func (t *BST) removeMax(node *Node) *Node {
+	if node.right == nil {
+		left := node.left
+		node.left = nil
+		t.size--
+		return left
+	}
+
+	node.right = t.removeMax(node.right)
+	return node
 }
