@@ -37,12 +37,15 @@ Go 1.14+
 - [Hashing](data_structures/hashing)
     - [Array Symbol Table](data_structures/hashing/symboltable/array_st.go)
     - [Sequential Search Symbol Table](data_structures/hashing/symboltable/sequential_search_st.go)
+- [Tree](data_structures/tree)
+    - [Binary Search Tree](data_structures/tree/bst.go)
 
 ## Algorithms
 
 - [Sorts](algorithms/sorts)
     - [Selection Sort](algorithms/sorts/selection_sort.go)
     - [Insertion Sort](algorithms/sorts/insertion_sort.go)
+    - [Merge Sort](algorithms/sorts/mergesort)
 - [Searches](algorithms/searches)
     - [Binary Search](algorithms/searches/binary_search.go)
 
