@@ -149,6 +149,11 @@ func (t *BST) RemoveMax() T {
 	return max
 }
 
+// Remove 从二分搜索树中移除给定的节点
+func (t *BST) Remove(data T) {
+	t.root = t.remove(t.root, data)
+}
+
 // add 插入元素到以node为根的二分搜索树中
 // 返回插入新节点后二分搜索树的根
 func (t *BST) add(node *Node, data T) *Node {
@@ -257,4 +262,46 @@ func (t *BST) removeMax(node *Node) *Node {
 
 	node.right = t.removeMax(node.right)
 	return node
+}
+
+// remove 从以node为根的二分搜索树中删除给定节点
+// 返回删除节点后新的二分搜索树的根节点
+func (t *BST) remove(node *Node, data T) *Node {
+	if node == nil {
+		return nil
+	}
+
+	if data < node.data {
+		node.left = t.remove(node.left, data)
+		return node
+	} else if data > node.data {
+		node.right = t.remove(node.right, data)
+		return node
+	} else {
+		if node.left == nil {
+			// 待删除的节点左子树为空
+			right := node.right
+			node.right = nil
+			t.size--
+			return right
+		}
+		if node.right == nil {
+			// 待删除的节点右子树为空
+			left := node.left
+			node.left = nil
+			t.size--
+			return left
+		}
+
+		// 待删除节点左子树和右子树均不为空的情况
+		// 找到比这个待删除节点大的最小节点
+		// 即待删除节点右子树的最小节点
+		// 用这个节点顶替待删除节点的位置
+		successor := t.min(node.right)
+		successor.right = t.removeMin(node.right)
+		successor.left = node.left
+		node.left = nil
+		node.right = nil
+		return successor
+	}
 }

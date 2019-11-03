@@ -72,6 +72,18 @@ var _ = Describe("BST", func() {
 			Expect(bst.RemoveMin()).To(BeEquivalentTo(1))
 			Expect(bst.RemoveMax()).To(BeEquivalentTo(27))
 		})
+
+		Specify("delete nodes", func() {
+			bst.Remove(1)
+			bst.Remove(100)
+			bst.Remove(18)
+			bst.Remove(20)
+			bst.Remove(15)
+			bst.Remove(10)
+			bst.Remove(5)
+			bst.Remove(19)
+			bst.Remove(22)
+		})
 	}
 
 	Describe("BST", Ordered, func() {
