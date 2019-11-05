@@ -2,7 +2,7 @@ package st
 
 import "errors"
 
-var DefaultCapacity = 10
+const DefaultCapacity = 10
 
 type Option func(*ArrayST)
 

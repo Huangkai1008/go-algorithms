@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-var (
+const (
 	DefaultCapacity = 10
 )
 
