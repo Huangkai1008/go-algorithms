@@ -1,5 +1,7 @@
 package st
 
+import . "go-algorithms/data_structures/types"
+
 // OrderedST 有序符号表的抽象接口
 type OrderedST interface {
 	SymbolTable

@@ -1,6 +1,10 @@
 package st
 
-import "errors"
+import (
+	"errors"
+
+	. "go-algorithms/data_structures/types"
+)
 
 const DefaultCapacity = 10
 

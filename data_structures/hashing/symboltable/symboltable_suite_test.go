@@ -5,6 +5,8 @@ import (
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
+
+	. "go-algorithms/data_structures/types"
 )
 
 var _ = Describe("SymbolTable", func() {

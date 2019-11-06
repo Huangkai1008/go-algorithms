@@ -3,7 +3,7 @@
 // Ref: https://en.wikipedia.org/wiki/Hash_table
 package hashing
 
-import st "go-algorithms/data_structures/hashing/symboltable"
+import . "go-algorithms/data_structures/types"
 
 const (
 	DefaultCapacity        = 997  // 哈希表的默认容量
@@ -13,5 +13,10 @@ const (
 
 // HashTable 是哈希表的抽象类型
 type HashTable interface {
-	st.SymbolTable
+	Put(key Key, value Value)   // Put 将键值对存入哈希表中
+	Get(key Key) (Value, error) // Get 获取键对应的值，当键不存在时则返回keyError错误
+	Delete(key Key)             // Delete 根据键删除对应的键值对
+	Contains(key Key) bool      // Contains 判断键在表中是否有对应的值
+	IsEmpty() bool              // IsEmpty 判断哈希表是否为空
+	Size() int64                // Size 返回哈希表中元素的数量
 }

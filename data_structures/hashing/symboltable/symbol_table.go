@@ -6,10 +6,7 @@
 // Ref: https://en.wikipedia.org/wiki/Symbol_table
 package st
 
-type (
-	Key   string // 符号表的键类型
-	Value int    // 符号表的值类型
-)
+import . "go-algorithms/data_structures/types"
 
 // SymbolTable 是符号表的抽象类型
 type SymbolTable interface {

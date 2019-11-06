@@ -1,6 +1,10 @@
 package st
 
-import "errors"
+import (
+	"errors"
+
+	. "go-algorithms/data_structures/types"
+)
 
 type Node struct {
 	key   Key

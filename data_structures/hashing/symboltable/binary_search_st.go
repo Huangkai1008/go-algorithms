@@ -1,6 +1,10 @@
 package st
 
-import "errors"
+import (
+	"errors"
+
+	. "go-algorithms/data_structures/types"
+)
 
 // BinarySearchST 二分查找符号表的实现
 //
