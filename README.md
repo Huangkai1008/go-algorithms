@@ -38,7 +38,7 @@ Go 1.14+
     - [Array Symbol Table](data_structures/hashing/symboltable/array_st.go)
     - [Sequential Search Symbol Table](data_structures/hashing/symboltable/sequential_search_st.go)
     - [Binary Search Symbol Table](data_structures/hashing/symboltable/binary_search_st.go)
-
+    - [Separate Chaining Hash Table](data_structures/hashing/hashtablesc.go)
 - [Tree](data_structures/tree)
     - [Binary Search Tree](data_structures/tree/bst.go)
 

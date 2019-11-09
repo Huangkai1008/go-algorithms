@@ -30,6 +30,9 @@ func NewSCHashTable(opts ...Option) *SeparateChainingHashTable {
 		o(&t)
 	}
 	t.buckets = make([]*st.SequentialSearchST, t.capacity)
+	for idx := range t.buckets {
+		t.buckets[idx] = st.NewSequentialSearchST()
+	}
 	return &t
 }
 
@@ -111,7 +114,7 @@ func (t *SeparateChainingHashTable) loadFactor() float64 {
 // 此过程做了重哈希(Rehash)
 func (t *SeparateChainingHashTable) resize(chains int64) {
 	hashTable := NewSCHashTable(
-		WithCapacity(t.capacity),
+		WithCapacity(chains),
 		WithUpperLoadFactor(t.upperLoadFactor),
 		WithLowerLoadFactor(t.lowerLoadFactor),
 	)
