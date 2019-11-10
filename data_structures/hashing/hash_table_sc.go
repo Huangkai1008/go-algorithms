@@ -14,7 +14,7 @@ type SeparateChainingHashTable struct {
 	initCapacity    int64                    // 哈希表初始化容量
 	capacity        int64                    // 哈希表当前容量
 	size            int64                    // 哈希表当前键值对个数
-	upperLoadFactor float64                  //  哈希表最大负载因子
+	upperLoadFactor float64                  // 哈希表最大负载因子
 	lowerLoadFactor float64                  // 哈希表最小负载因子
 }
 
