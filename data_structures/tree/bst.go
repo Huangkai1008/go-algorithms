@@ -1,8 +1,10 @@
 package tree
 
-import "fmt"
+import (
+	"fmt"
 
-type T int
+	. "go-algorithms/data_structures/types"
+)
 
 type Node struct {
 	data  T     // 节点的值
