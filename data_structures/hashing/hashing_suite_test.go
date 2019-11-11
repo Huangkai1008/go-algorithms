@@ -75,6 +75,14 @@ var _ = Describe("HashTable", func() {
 
 		AssertHashTableBehavior()
 	})
+
+	Describe("LinearProbingST", Ordered, func() {
+		BeforeAll(func() {
+			hashTable = NewLinearProbingHashTable(DefaultLPInitCapacity)
+		})
+
+		AssertHashTableBehavior()
+	})
 })
 
 func TestHashTable(t *testing.T) {
