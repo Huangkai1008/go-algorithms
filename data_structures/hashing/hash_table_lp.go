@@ -123,6 +123,7 @@ func (t *LinearProbingHashTable) resize(capacity int64) {
 	t.keys = hashTable.keys
 	t.values = hashTable.values
 	t.capacity = capacity
+	t.initCapacity = capacity
 }
 
 // rehash 重哈希

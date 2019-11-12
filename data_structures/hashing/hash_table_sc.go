@@ -22,6 +22,7 @@ type SeparateChainingHashTable struct {
 func NewSCHashTable(opts ...Option) *SeparateChainingHashTable {
 	t := SeparateChainingHashTable{
 		capacity:        DefaultCapacity,
+		initCapacity:    DefaultCapacity,
 		upperLoadFactor: DefaultUpperLoadFactor,
 		lowerLoadFactor: DefaultLowerLoadFactor,
 	}
@@ -39,6 +40,7 @@ func NewSCHashTable(opts ...Option) *SeparateChainingHashTable {
 func WithCapacity(capacity int64) Option {
 	return func(t *SeparateChainingHashTable) {
 		t.capacity = capacity
+		t.initCapacity = capacity
 	}
 }
 
@@ -113,11 +115,7 @@ func (t *SeparateChainingHashTable) loadFactor() float64 {
 // 将原有哈希表的所有键值对放入此哈希表中
 // 此过程做了重哈希(Rehash)
 func (t *SeparateChainingHashTable) resize(chains int64) {
-	hashTable := NewSCHashTable(
-		WithCapacity(chains),
-		WithUpperLoadFactor(t.upperLoadFactor),
-		WithLowerLoadFactor(t.lowerLoadFactor),
-	)
+	hashTable := NewSCHashTable(WithCapacity(chains))
 
 	for _, bucket := range t.buckets {
 		for _, key := range bucket.Keys() {
@@ -125,7 +123,7 @@ func (t *SeparateChainingHashTable) resize(chains int64) {
 			hashTable.Put(key, value)
 		}
 	}
-	t.capacity = chains
-	t.size = hashTable.Size()
 	t.buckets = hashTable.buckets
+	t.capacity = chains
+	t.initCapacity = chains
 }

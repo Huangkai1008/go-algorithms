@@ -1,6 +1,8 @@
 package sorts
 
 // BubbleSort 冒泡排序
+//
+// Ref: https://en.wikipedia.org/wiki/Bubble_sort
 func BubbleSort(items []int) {
 	length := len(items)
 
