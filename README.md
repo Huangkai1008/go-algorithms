@@ -42,6 +42,7 @@ Go 1.14+
     - [Linear Probing Hash Table](data_structures/hashing/hash_table_lp.go)
 - [Set](data_structures/set)
     - [Binary Search Tree Set](data_structures/set/bst_set.go)
+    - [Hash Set](data_structures/set/hashset.go)
 - [Tree](data_structures/tree)
     - [Binary Search Tree](data_structures/tree/bst.go)
 

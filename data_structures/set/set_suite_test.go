@@ -50,6 +50,14 @@ var _ = Describe("set", func() {
 		AssertSetBehavior()
 	})
 
+	Describe("HashSet", Ordered, func() {
+		BeforeAll(func() {
+			set = NewHashSet()
+		})
+
+		AssertSetBehavior()
+	})
+
 })
 
 func TestSet(t *testing.T) {
