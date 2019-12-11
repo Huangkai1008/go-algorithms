@@ -45,6 +45,8 @@ Go 1.14+
     - [Hash Set](data_structures/set/hashset.go)
 - [Tree](data_structures/tree)
     - [Binary Search Tree](data_structures/tree/bst.go)
+- [Heap](data_structures/heap)
+    - [Max Heap](data_structures/heap/max_heap.go)
 
 ## Algorithms
 
