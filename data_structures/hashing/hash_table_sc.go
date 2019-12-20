@@ -80,7 +80,7 @@ func (t *SeparateChainingHashTable) Delete(key Key) {
 	}
 	t.buckets[hashcode].Delete(key)
 
-	if t.capacity > t.initCapacity && t.loadFactor() <= t.lowerLoadFactor {
+	if t.capacity/2 > t.initCapacity && t.loadFactor() <= t.lowerLoadFactor {
 		t.resize(t.capacity / 2)
 	}
 }

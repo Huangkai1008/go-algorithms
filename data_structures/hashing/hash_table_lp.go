@@ -72,8 +72,8 @@ func (t *LinearProbingHashTable) Delete(key Key) {
 			t.size--
 
 			// 缩容
-			if t.capacity > t.initCapacity && t.loadFactor() <= t.lowerLoadFactor {
-				t.resize(t.capacity >> 2)
+			if t.capacity/2 > t.initCapacity && t.loadFactor() <= t.lowerLoadFactor {
+				t.resize(t.capacity / 2)
 			}
 		}
 	}
