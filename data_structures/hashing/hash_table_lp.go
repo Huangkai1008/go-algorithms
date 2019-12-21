@@ -45,6 +45,7 @@ func (t *LinearProbingHashTable) Put(key Key, value Value) {
 	for ; t.keys[hashcode] != ""; hashcode = (hashcode + 1) % uint64(t.capacity) {
 		if t.keys[hashcode] == key {
 			t.values[hashcode] = value
+			return
 		}
 	}
 
