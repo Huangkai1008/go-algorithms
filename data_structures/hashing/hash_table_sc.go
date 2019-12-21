@@ -125,5 +125,4 @@ func (t *SeparateChainingHashTable) resize(chains int64) {
 	}
 	t.buckets = hashTable.buckets
 	t.capacity = chains
-	t.initCapacity = chains
 }
