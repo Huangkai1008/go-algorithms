@@ -85,8 +85,8 @@ func (h *MaxHeap) right(index int) int {
 
 // heapify 将数组堆化
 //
-// 从最后一个叶子节点开始向前遍历下沉
-// 最后一个叶子节点根据二叉堆的性质必定是最后一个节点的父节点
+// 从最后一个非叶子节点开始向前遍历下沉
+// 最后一个非叶子节点根据二叉堆的性质必定是最后一个节点的父节点
 func (h *MaxHeap) heapify() {
 	for i := h.parent(h.Size() - 1); i >= 0; i-- {
 		h.siftDown(i)
