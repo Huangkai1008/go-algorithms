@@ -5,18 +5,18 @@ import (
 	"strings"
 )
 
-// DoubleNode 双向链表的节点
-type DoubleNode struct {
+// DoublyLinkedNode 双向链表的节点
+type DoublyLinkedNode struct {
 	data interface{}
-	prev *DoubleNode
-	next *DoubleNode
+	prev *DoublyLinkedNode
+	next *DoublyLinkedNode
 }
 
 // DoublyLinkedList 双向链表的实现
 type DoublyLinkedList struct {
-	head *DoubleNode // 双向链表的头部节点
-	tail *DoubleNode // 双向链表的尾部节点
-	size int         // 链表的长度
+	head *DoublyLinkedNode // 双向链表的头部节点
+	tail *DoublyLinkedNode // 双向链表的尾部节点
+	size int               // 链表的长度
 }
 
 // NewDll 返回一个空的双向链表
@@ -37,7 +37,7 @@ func (l *DoublyLinkedList) Insert(pos int, data interface{}) {
 		panic("Insert failed, position out of range.")
 	}
 
-	node := &DoubleNode{data: data}
+	node := &DoublyLinkedNode{data: data}
 	if l.size == 0 {
 		l.head = node
 		l.tail = node
